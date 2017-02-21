@@ -1,0 +1,23 @@
+<html>
+<head>
+<script>
+	function getSystem(id, idx) {
+		var systems = JSON.parse( document.getElementById("map").innerHTML );
+		var res = document.getElementById(id);
+		res.innerHTML = systems[idx][0].concat("&nbsp",systems[idx][1]["sig"]);
+	}
+
+	function drawOnMap(x, y, label) {
+		var c = document.getElementById("map");
+		var ctx = c.getContext("2d");
+		ctx.font = "20px Arial";
+		ctx.fillText(label,x,y);
+	}
+</script>
+</head>
+<begin>
+<canvas id="map" width="800" height="600" style="border:1px solid #000000;" >[["J123456",{"sig": "AUD", "wh": "1", "type": "x702", "time": "10:00", "to": "J123457", "x": "10", "y": "50"},{"sig": "BCD", "wh": "1", "type": "m001", "time": "12:00", "to": "123458"}]]</canvas>
+<p id=clickMe onClick="getSystem(this.id,0); drawOnMap(10, 100, 'abc')">Click me</p>
+</begin>
+</html>
+
